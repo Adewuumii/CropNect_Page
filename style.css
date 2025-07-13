@@ -1,0 +1,707 @@
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #0d6830;
+}
+
+body {
+    background: #09350b;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Header */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    padding: 30px 100px;
+    z-index: 1000;
+}
+
+header .menu {
+    position: relative;
+    display: flex;
+    height: 30px;
+    width: 30px;
+    top: 25px;
+    right: 60px;
+    background: url('./image/menu-3-fill.png') no-repeat;
+    background-size: 30px;
+    background-position: center;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+header .menu.active {
+    position: relative;
+    display: flex;
+    height: 35px;
+    width: 35px;
+    background: url('./image/close-line.png') no-repeat;
+    background-size: 35px;
+    background-position: center;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Navigation */
+.nav {
+    z-index: 200;
+    position: absolute;
+    right: 100px;
+    top: 10px;
+    width: 30%;
+    height: 5px;
+    border-bottom: 5px solid;
+    border-image: linear-gradient(90deg, transparent, var(--primary), var(--primary)transparent) 30;
+    background: transparent;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    transform-origin: right;
+}
+
+.nav.active {
+    top: 50px;
+    width: 40%;
+    height: 60px;
+    right: 30px;
+    border-top: 5px solid;
+    border-image: linear-gradient(90deg, transparent, var(--primary), var(--primary), transparent) 30;
+    border-bottom: none;
+
+}
+
+.nav li {
+    position: relative;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100px);
+    transition: 0.5s;
+}
+
+.nav.active li {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.content {
+    flex: 1;
+    min-width: 300px;
+}
+
+#chat-widget {
+    width: 450px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#chat-header {
+    background: #095f2a;
+    color: rgba(234, 238, 231, 0.808);
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+#chat-window {
+    padding: 0.75rem;
+    height: 250px;
+    overflow-y: auto;
+    background: #d3e0d2;
+}
+
+.chat-message {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    max-width: 75%;
+    clear: both;
+    font-size: 0.9rem;
+}
+
+.buyer {
+    background: #a9f0af;
+    margin-left: auto;
+    text-align: right;
+}
+
+.farmer {
+    background: #fff;
+    margin-right: auto;
+    text-align: left;
+}
+
+#chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 0.5rem;
+    background: #ebf7e8;
+}
+
+#chat-input input {
+    flex: 1;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 20px;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+#chat-input button {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
+    color: #25D366;
+    cursor: pointer;
+}
+
+.nav li a {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 8px 20px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.nav li a:hover {
+    box-shadow: inset 0 0 20px rgba(7, 80, 17, 0.5);
+}
+
+
+/* Banner */
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.banner::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.9));
+}
+
+.banner::before {
+    position: absolute;
+    content: '';
+    top: 25%;
+    left: 0;
+    width: 5px;
+    height: 40%;
+    background: linear-gradient(var(--primary), var(--primary), transparent);
+    z-index: 100;
+}
+
+/* Banner Content*/
+.banner {
+    padding: 50px 30px 100px;
+}
+
+.banner .content {
+    position: relative;
+    max-width: 700px;
+    padding-bottom: 50px;
+    z-index: 100;
+}
+
+.banner .content h1 {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 5em;
+    color: #ffffff;
+    font-weight: 500;
+    line-height: 0.8em;
+    letter-spacing: 5px;
+}
+
+.banner .content p {
+    color: #ffffff;
+    font-size: 200;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+
+.banner .content a {
+    position: relative;
+    width: 200px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 50px;
+    background: transparent;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg,
+            transparent,
+            var(--primary),
+            var(--primary),
+            transparent)30;
+    box-shadow: inset 0 0 10px rgba(49, 92, 54, 0.5);
+    -webkit-backdrop-filter: blur(240px);
+    backdrop-filter: blur(240px);
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+
+
+.banner .content a:hover {
+    box-shadow: inset 0 0 50px rgba(14, 59, 24, 0.5);
+}
+
+/* Professional Bio Section */
+.bio {
+    position: relative;
+    padding: 0px 50px;
+}
+
+
+.bio h4 {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 2.5em;
+    color: #dcf0ca;
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.bio h6 {
+    color: #a9f0af;
+    font-size: 1.1em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.bio p {
+    color: #cfe7bf;
+    text-align: justify;
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Add some decorative elements */
+.bio h4::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), #a9f0af, transparent);
+    border-radius: 2px;
+}
+
+
+/* Social media */
+
+.sci {
+    position: absolute;
+    top: 40%;
+    right: 60px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sci li {
+    list-style: none;
+}
+
+.sci li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2em;
+    transition: 0.3s;
+}
+
+.sci li a:hover {
+    color: var(--primary);
+}
+
+/* footer */
+#footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.credite {
+    color: rgb(140, 151, 134);
+    margin-top: 20px;
+    text-shadow: 0px 0px 1px black;
+}
+
+.credite a {
+    text-decoration: none;
+    color: rgb(11, 12, 11);
+}
+
+
+
+/* Responsive Media Queries */
+
+/* Tablet Styles - 768px to 1024px */
+@media (max-width: 1024px) {
+    header {
+        padding: 20px 50px;
+    }
+
+    .banner {
+        padding: 0 50px;
+    }
+
+    .banner .content h1 {
+        font-size: 4em;
+    }
+
+    .flex-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    #chat-widget {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .sci {
+        right: 40px;
+        top: 45%;
+    }
+
+    .bio {
+        padding: 60px 50px;
+    }
+
+    .bio h4 {
+        font-size: 2.2em;
+    }
+}
+
+/* Mobile Landscape - 481px to 767px */
+@media (max-width: 767px) {
+    header {
+        padding: 15px 30px;
+    }
+
+    header .menu {
+        right: 30px;
+        top: 20px;
+    }
+
+    .nav {
+        right: 30px;
+        width: 50%;
+    }
+
+    .nav.active {
+        right: 20px;
+        width: 60%;
+        height: 50px;
+        top: 45px;
+    }
+
+    .banner {
+        padding: 0 30px;
+        min-height: 90vh;
+    }
+
+    .banner .content h1 {
+        font-size: 3.5em;
+        letter-spacing: 3px;
+    }
+
+    .banner .content p {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    .banner .content a {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+
+    .flex-row {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    #chat-widget {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    #chat-window {
+        height: 200px;
+    }
+
+    .sci {
+        right: 20px;
+        top: 50%;
+        gap: 8px;
+    }
+
+    .sci li a {
+        font-size: 1.1em;
+    }
+
+    .bio {
+        padding: 50px 30px;
+    }
+
+    .bio h4 {
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+
+    .bio h6 {
+        font-size: 1em;
+        margin-bottom: 25px;
+    }
+
+    .bio p {
+        font-size: 1em;
+        line-height: 1.7;
+    }
+}
+
+/* Mobile Portrait - 320px to 480px */
+@media (max-width: 480px) {
+    header {
+        padding: 10px 20px;
+    }
+
+    header .menu {
+        right: 20px;
+        top: 15px;
+        height: 25px;
+        width: 25px;
+        background-size: 25px;
+    }
+
+    header .menu.active {
+        height: 30px;
+        width: 30px;
+        background-size: 30px;
+    }
+
+    .nav {
+        right: 0;
+        width: 100%;
+        top: 0;
+    }
+
+    .nav.active {
+        right: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: none;
+        background: rgba(9, 53, 11, 0.95);
+    }
+
+    .nav.active li {
+        margin: 10px 0;
+    }
+
+    .nav li a {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+
+    .banner {
+        padding: 0 20px;
+        min-height: 85vh;
+    }
+
+    .banner .content {
+        padding-bottom: 30px;
+    }
+
+    .banner .content h1 {
+        font-size: 2.8em;
+        letter-spacing: 2px;
+        line-height: 0.9em;
+    }
+
+    .banner .content h6 {
+        font-size: 0.9em;
+        margin-bottom: 15px;
+    }
+
+    .banner .content p {
+        font-size: 0.9em;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    .banner .content a {
+        padding: 10px 25px;
+        font-size: 0.9em;
+        width: auto;
+        display: inline-block;
+    }
+
+    .flex-row {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .content {
+        min-width: 250px;
+    }
+
+    #chat-widget {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    #chat-header {
+        padding: 0.8rem;
+        font-size: 0.9em;
+    }
+
+    #chat-window {
+        height: 180px;
+        padding: 0.5rem;
+    }
+
+    .chat-message {
+        font-size: 0.8rem;
+        max-width: 85%;
+    }
+
+    #chat-input {
+        padding: 0.4rem;
+    }
+
+    #chat-input input {
+        font-size: 0.8rem;
+        padding: 0.4rem;
+    }
+
+    #chat-input button {
+        font-size: 1.1rem;
+    }
+
+    .sci {
+        right: 15px;
+        top: 55%;
+        gap: 6px;
+    }
+
+    .sci li a {
+        font-size: 1em;
+    }
+
+    .bio {
+        padding: 40px 20px;
+    }
+
+    .bio h4 {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+    }
+
+    .bio h6 {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+
+    .bio p {
+        font-size: 0.9em;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .bio h4::after {
+        width: 60px;
+        height: 2px;
+    }
+
+    #footer {
+        padding: 20px 10px;
+    }
+
+    .credite {
+        font-size: 0.8em;
+        text-align: center;
+    }
+
+    .copyright {
+        font-size: 0.8em;
+        margin-top: 10px;
+    }
+}

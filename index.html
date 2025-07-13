@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+
+    <title>CropNect | Connecting Farmers to Buyers</title>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="menu" onclick="toggleMenu();"></a>
+    </header>
+
+    <div class="banner">
+        <ul class="nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">Farmers</a></li>
+            <li><a href="#">Buyers</a></li>
+        </ul>
+        <div class="flex-row">
+            <div class="content">
+                <h1><span style="font-size: 0.2em;">The Future of </span>CropNect</h1>
+                <h6 style="color: #393b38;"> <em>From Soil to Sale, One Harvest at a Time.</em></h6>
+                <p>
+                    CropNect is a digital marketplace that connects farmers directly to buyers, enabling real-time
+                    product listings, buyer reviews, and direct messaging. By eliminating middlemen, it promotes
+                    transparency, fair pricing, and a more efficient farm-to-market system.
+                </p>
+                <a href="#">Join the Movement</a>
+            </div>
+            <div id="chat-widget">
+                <div id="chat-header">Live Chat 💬</div>
+                <div id="chat-window"></div>
+                <div id="chat-input">
+                    <input type="text" id="messageBox" placeholder="Type a message... 😊" />
+                    <button type="button" onclick="sendMessage">➤</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Professional Bio Section -->
+    <section class="bio" style="color:#ffffff;">
+        <h4>Adewumi Ajibade</h4>
+        <h6><em>Founder & Cloud Engineer</em></h6>
+        <p>
+            Adewumi Ajibade is a passionate agri-tech innovator combining her background in Agricultural Economics with
+            emerging skills in cloud engineering. She holds a B.Sc. in Agricultural Economics from Obafemi Awolowo
+            University, with experience in agricultural research and field-based studies.
+            <br /><br />
+            Now training at ALTSchool Africa to become a cloud engineer, Adewumi is leveraging modern cloud and DevOps
+            technologies to build scalable solutions that bridge the gap between smallholder farmers and markets. Her
+            mission is to create digital tools that make agriculture smarter, fairer, and more inclusive.
+        </p>
+    </section>
+    <ul class="sci">
+        <li><a href="https://x.com/adewuumii?s=21"><i class="bi bi-twitter"></i></a></li>
+        <li><a href="https://github.com/adewuumii"><i class="bi bi-github"></i></a></li>
+        <li><a href="http://www.linkedin.com/in/adewumi-ajibade"><i class="bi bi-linkedin"></i></a></li>
+    </ul>
+
+
+    <script>
+        // toggle menu button
+        function toggleMenu() {
+            console.log("toggleMenu() called");
+            const menu = document.querySelector('.menu');
+            const nav = document.querySelector('.nav');
+            menu.classList.toggle('active');
+            nav.classList.toggle('active');
+        }
+
+
+        const messages = [
+            { sender: "buyer", text: "Hi! Is your cocoa still available? 😊" },
+            { sender: "farmer", text: "Yes, I have 3 bags left. Ready for pickup or delivery. 🚜" },
+            { sender: "buyer", text: "Great! Can you deliver to Ibadan? 📦" },
+            { sender: "farmer", text: "Sure. I can send it by Friday morning. 👍" },
+        ];
+
+        let index = 0;
+        function simulateChat() {
+            if (index >= messages.length) return;
+
+            const chatWindow = document.getElementById("chat-window");
+            const msg = document.createElement("div");
+            msg.className = `chat-message ${messages[index].sender}`;
+            msg.textContent = messages[index].text;
+            chatWindow.appendChild(msg);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+
+            index++;
+            setTimeout(simulateChat, 2000);
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("messageBox");
+            const chatWindow = document.getElementById("chat-window");
+            const text = input.value.trim();
+            if (text === "") return;
+            const msg = document.createElement("div");
+            msg.className = "chat-message buyer";
+            msg.textContent = text;
+            chatWindow.appendChild(msg);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            input.value = "";
+        }
+
+        simulateChat();
+    </script>
+
+    <footer id="footer">
+
+        <div class="credite">
+            Designed By <a href="https://github.com/adewuumii" target="_blank">AdewumiAjibade</a>
+        </div>
+        <div class="copyright text-center">
+            &copy;Copyright <strong><span>CropNect</span></strong>. All Rights Reserved
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
