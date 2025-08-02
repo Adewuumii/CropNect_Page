@@ -165,4 +165,4 @@ This allowed me to access the Node.js app via HTTPS.
 
 ## Conclusion
 
-This deployment involved provisioning a secure EC2 instance, installing and configuring Nginx, deploying a static site with Node.js, setting up a reverse proxy, and enabling HTTPS using Certbot. PM2 ensured my app ran persistently across reboots.
+This deployment involved provisioning a secure EC2 instance, installing and configuring Nginx, deploying a dynamic site with Node.js, setting up a reverse proxy, and enabling HTTPS using Certbot. PM2 ensured my app ran persistently across reboots.
