@@ -1,4 +1,4 @@
-# 🌾 CropNect - A Digital Marketplace for Farmers
+# CropNect - A Digital Marketplace for Farmers
 
 CropNect is a dynamic web-based landing page for an agri-tech platform that connects farmers directly to buyers, enabling real-time communication, transparency, and efficiency in farm produce trading.
 
@@ -11,6 +11,8 @@ This document details the steps I took to successfully deploy the CropNect landi
 **URL**: [https://cropnect01.crabdance.com](https://cropnect01.crabdance.com)
 
 **Public IP Address**: `13.48.190.109`
+
+**NOTE**: This project was previously hosted on an AWS EC2 instance as part of a deployment exercise. The instance has since been terminated to prevent ongoing charges. So the link to the live site and the public IP address is no longer available.
 
 ### Screenshot
 
